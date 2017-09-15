@@ -41,6 +41,24 @@
 
 ```
 
+### Completed Feature
+* Fetch Youtube Categories
+* Fetch 10 Videos and support PageToken and CategoryId query
+* Redux Store [category, videoList]
+* App can start withoutht error
+
+### What would have been done with more time
+
+* Add Feature Video UI component in homepage
+* Add Search and category selection component
+* Add Video playback component which supports lazy loading of passing pageToken to get 10 more videos.
+* Add related video list component
+* Display 10 Videos in homepage
+* Add Reducer of {selectedVideo} to store selected Video information
+* Add API services:
+  - Query related video list according to selected video
+* SASS support
+
 ### Development
 
 Start frontend：
@@ -61,11 +79,6 @@ Production build：
 ```bash
 npm run build
 ```
-
-### Todo List
-
-
-
 
 
 License
