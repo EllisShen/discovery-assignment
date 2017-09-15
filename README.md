@@ -41,6 +41,10 @@
 
 ```
 
+### Design Wireframe
+
+![](https://github.com/EllisShen/discovery-assignment/blob/e1d32ab9caa7c02bef9af15e4b670b0063b9a8d0/Wireframe.png?raw=true)
+
 ### Completed Feature
 * Fetch Youtube Categories
 * Fetch 10 Videos and support PageToken and CategoryId query
@@ -58,6 +62,7 @@
 * Add API services:
   - Query related video list according to selected video
 * SASS support
+
 
 ### Development
 
