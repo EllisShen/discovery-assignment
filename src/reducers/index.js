@@ -7,8 +7,19 @@ function category(state = [], action) {
   }
 }
 
+function videoList(state = {}, action) {
+  switch (action.type) {
+    case 'FETCH_VIDEO_LIST_SUCCESS':
+      return { ... action.data }
+
+    default:
+      return state;
+  }
+}
+
 const reducers = {
   category,
+  videoList,
 };
 
 export default reducers

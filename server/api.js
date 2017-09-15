@@ -26,12 +26,10 @@ router.get('/categories', (req, res) => {
  * Fetch videolist from youtube (pagination is optional)
  */
 router.get('/videolist', (req, res) => {
-  // const pageSize = parseInt(req.query.pageSize, 10);
-  // const page = parseInt(req.query.page, 10);
   let pageToken = '';
   let categoryId = '';
   if (req.query.pageToken) {
-    pageToken = req.query.categoryId;
+    pageToken = req.query.pageToken;
   }
   if (req.query.categoryId) {
     categoryId = req.query.categoryId;
@@ -39,7 +37,7 @@ router.get('/videolist', (req, res) => {
   // find videos from youtube
   youtube.getPopularVideos(pageToken, categoryId)
   .then((raw) => {
-    console.log('list', raw.data);
+    res.send(raw.data);
   })
   .catch((err) => {
     console.log('err', err);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCategoryAction } from './actions';
+import { fetchCategoryAction, fetchVideoListAction } from './actions';
 import DevTools from './components/DevTools';  // debug only
 // Material-UI
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -33,7 +33,7 @@ class App extends Component {
 
   componentWillMount() {
     this.props.fetchCategoryList();  // fetch video category
-    // this.props.fetchVideoList();
+    this.props.fetchVideoList('', '');  // fetch video
   }
 
   render() {
@@ -56,8 +56,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchCategoryList: () => {
       dispatch(fetchCategoryAction());
     },
-    fetchVideoList: () => {
-      dispatch(fetchVideoListAction());
+    fetchVideoList: (pageToken, categoryId) => {
+      dispatch(fetchVideoListAction({ pageToken, categoryId }));
     }
   }
 };

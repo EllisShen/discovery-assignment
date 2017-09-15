@@ -21,9 +21,34 @@ function* fetchCategoryFlow() {
   }
 }
 
+/* 
+/* Video List Related Funcs */
+/**/
+function* fetchVideoListApi(payload) {
+  try {
+    const data = yield call(api.fetchVideoList, payload)
+    yield put({ type: 'FETCH_VIDEO_LIST_SUCCESS', data })
+  } catch (error) {
+    yield put({ type: 'FETCH_VIDEO_LIST_ERROR', error })
+  }
+}
+
+function* fetchVideoListFlow() {
+  while(true) {
+    const { payload } = yield take('FETCH_VIDEO_LIST');
+    // console.log('payload', payload)
+    yield call(fetchVideoListApi, payload)
+  }
+}
+
+/* 
+/* todo: Video Play Funcs */
+/**/
+
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield [
     call(fetchCategoryFlow),
+    call(fetchVideoListFlow),
   ]
 }
